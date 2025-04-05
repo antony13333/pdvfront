@@ -16,7 +16,7 @@ import { XMarkIcon, ExclamationTriangleIcon } from '@heroicons/react/24/solid';
 
 const App = () => {
   document.body.style.overflow = 'hidden';
-
+  const API_URL = import.meta.env.VITE_API_URL;
   const [aberto, setAberto] = useState(false);
   const [comanda, setComanda] = useState(null);
   const [uptcomanda, setC] = useState([]);
@@ -40,7 +40,7 @@ const App = () => {
   }, [atualizar])
   const AberturaHoje = async () => {
     try {
-      const status = await axios.get("http://localhost:8080/abre")
+      const status = await axios.get(`${API_URL}/abre`)
       setAberto(status.data);
       console.log(status.data);
 
@@ -55,7 +55,7 @@ const App = () => {
       const body = {
         produtosIds: produto.id_produto
       }
-      const url = `http://localhost:8080/addprod/${id}`
+      const url = `${API_URL}/addprod/${id}`
       try {
         const resposta = await axios.put(url, body);
         console.log(resposta.data);
@@ -72,7 +72,7 @@ const App = () => {
     }
 
     try {
-      const Response = await axios.get(`http://localhost:8080/ProdutosComanda/${id}`)
+      const Response = await axios.get(`${API_URL}/${id}`)
       console.log(Response.data);
       setProdutos(Response.data);
     } catch (error) {
@@ -81,7 +81,7 @@ const App = () => {
   }
   const newC = async () => {
     try {
-      const status = await axios.get(`http://localhost:8080/comandas/${comanda.id_Comanda}`)
+      const status = await axios.get(`${API_URL}/${comanda.id_Comanda}`)
       setC(status.data);
       console.log(status.data)
     }
@@ -96,7 +96,7 @@ const App = () => {
     }
     console.log(produto.id_produto)
     const id = produto.id_produto;
-    const url = "http://localhost:8080/comandas";
+    const url = `${API_URL}/comandas`;
     const body = {
       produtosIds: [id],
       Identificador: "comanda00",

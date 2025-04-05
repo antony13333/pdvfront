@@ -13,7 +13,7 @@ const Fetch = ({selectedcomanda }) =>{
     const handleFetch = async()=>
     {
         try{
-            const resposta = await axios.get('http://localhost:8080/ComandasAbertas')
+            const resposta = await axios.get(`${API_URL}/ComandasAbertas`)
             .then((resposta)=>{
                 setDado(resposta.data)
                

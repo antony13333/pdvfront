@@ -60,7 +60,7 @@ const Operation = ({ toShow, fechar, aberto, abrir }) => {
       const body = {
         Dinheiro_abertura: abertura
       }
-      const url = "http://localhost:8080/aberturaCaixa"
+      const url = `${API_URL}/aberturaCaixa`
       try {
         const status = await axios.post(url, body);
         console.log(status.data);
@@ -110,7 +110,7 @@ const Operation = ({ toShow, fechar, aberto, abrir }) => {
       console.log(pix);
       console.log(credito);
       
-      const url = "http://localhost:8080/fechamento"
+      const url = `${API_URL}/fechamento`
       const body = {
         Credito: credito,
         Debito: debito,
@@ -153,7 +153,7 @@ const Operation = ({ toShow, fechar, aberto, abrir }) => {
       const value = {
         valor: suprimento
       }
-      const url = "http://localhost:8080/suprimento"
+      const url = `${API_URL}/suprimento`
       try {
         const resp = await axios.post(url, value);
         console.log(resp.data);
@@ -185,7 +185,7 @@ const Operation = ({ toShow, fechar, aberto, abrir }) => {
       const value = {
         valor: sangria
       }
-      const url = "http://localhost:8080/sangria"
+      const url = `${API_URL}/sangria`
       try {
         const resp = await axios.post(url, value);
         console.log(resp.data);

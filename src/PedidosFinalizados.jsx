@@ -28,7 +28,7 @@ const PedidosFinalizados = () => {
 
     const prodfetch = async () => {
         try {
-            const status = await axios.get('http://localhost:8080/produtosrestaurante');
+            const status = await axios.get(`${API_URL}/produtosrestaurante`);
             setProdutos(status.data);
             setReprodutos(status.data);
         } catch (error) {
@@ -38,7 +38,7 @@ const PedidosFinalizados = () => {
 
     const comanfetch = async () => {
         try {
-            const response = await axios.get('http://localhost:8080/comandaspedido');
+            const response = await axios.get(`${API_URL}/comandaspedido`);
             const comandas = response.data;
             const listaUnica = comandas.filter((item, index) => comandas.indexOf(item) === index);
             setComandas(listaUnica);
@@ -56,7 +56,7 @@ const PedidosFinalizados = () => {
         if (dtaab) dados.Data_Criacao = dtaab;
         if (dtafe) dados.Data_Finalizado = dtafe;
     
-        const url = "http://localhost:8080/pedidosFinalizados";
+        const url = `${API_URL}/pedidosFinalizados`;
         try {
            
             if (Object.keys(dados).length > 0) {
@@ -65,7 +65,7 @@ const PedidosFinalizados = () => {
                 var pedidos = response.data;
             } else {
                 console.log("Sem filtros - buscando todos");
-                const resposta = await axios.get("http://localhost:8080/pedidosFin");
+                const resposta = await axios.get(`${API_URL}/pedidosFin`);
                 var pedidos = resposta.data;
             }
             if(pedidos.length===0){

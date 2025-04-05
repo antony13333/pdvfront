@@ -26,7 +26,7 @@ const HistoricoNotas = () => {
 
     const prodfetch = async () => {
         try {
-            const status = await axios.get('http://localhost:8080/produtosrestaurante');
+            const status = await axios.get(`${API_URL}/produtosrestaurante`);
             setProdutos(status.data);
             setReprodutos(status.data);
         } catch (error) {
@@ -36,7 +36,7 @@ const HistoricoNotas = () => {
 
     const comanfetch = async () => {
         try {
-            const response = await axios.get('http://localhost:8080/comandasnota');
+            const response = await axios.get(`${API_URL}/comandasnota`);
             const comandas = response.data;
             const listaUnica = comandas.filter((item, index) => comandas.indexOf(item) === index);
             setComandas(listaUnica);
@@ -53,14 +53,14 @@ const HistoricoNotas = () => {
         if (dtaab) dados.Data_Criacao = dtaab;
         if (mp) dados.FormaPagamento = mp;
 
-        const url = "http://localhost:8080/filternotas";
+        const url = `${API_URL}/filternotas`;
         try {
             let notas;
             if (Object.keys(dados).length > 0) {
                 const response = await axios.post(url, dados);
                 notas = response.data;
             } else {
-                const resposta = await axios.get("http://localhost:8080/notasall");
+                const resposta = await axios.get(`${API_URL}/notasall`);
                 notas = resposta.data;
             }
             
