@@ -9,7 +9,7 @@ const SearchBar= ({selectedproduto})=> {
     const[results , setResults] = useState([]);
 const prodfetch = async()=>{
     try{
-        const status = await axios.get(`${API_URL}/produtosrestaurante`)
+        const status = await axios.get(`https://pdv-production.up.railway.app/produtosrestaurante`)
             setProdutos(status.data);
             setResults(status.data);
     }

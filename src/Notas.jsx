@@ -54,7 +54,7 @@ useEffect(() => {
             Identificador: comanda?.identificador, 
             quantidade_prod: updated,
         };
-        const url = `${API_URL}/comandas/${comanda.id_Comanda}`;
+        const url = `https://pdv-production.up.railway.app/comandas/${comanda.id_Comanda}`;
         try{const res = await axios.put(url, dados);
             console.log("Comanda atualizada com sucesso:", res.data);
         } catch (error) {
@@ -74,7 +74,7 @@ useEffect(() => {
             Identificador: comanda?.identificador, 
             quantidade_prod: updatedQuantidadeProd,
         };
-        const url = `${API_URL}/comandas/${comanda.id_Comanda}`;
+        const url = `https://pdv-production.up.railway.app/comandas/${comanda.id_Comanda}`;
         try{
         const res = await axios.put(url, dados);
         console.log("Comanda atualizada com sucesso:", res.data);
@@ -99,7 +99,7 @@ useEffect(() => {
           setComanda(updatedQtd)
         }
        try{
-        const url = `${API_URL}/comandas/${comanda.id_Comanda}`;
+        const url = `https://pdv-production.up.railway.app/comandas/${comanda.id_Comanda}`;
         const dados = {
           produtosIds: updatedProd.map((item) => item.id_produto),
           Identificador: comanda?.identificador, 
@@ -159,7 +159,7 @@ useEffect(() => {
                 dataTime: horaFormatada
 
             }
-            const url= `${API_URL}/comandas/fecharcomanda/${comanda.id_Comanda}`
+            const url= `https://pdv-production.up.railway.app/comandas/fecharcomanda/${comanda.id_Comanda}`
             try{
             const resp = await axios.post(url,dados);
             console.log(resp.data);

@@ -38,7 +38,7 @@ buscarEmPreparo();
 
 const buscarEMEspera = async()=>{
     try{
-        const response = await axios.get(`${API_URL}/pedidosEspera`)
+        const response = await axios.get(`https://pdv-production.up.railway.app/pedidosEspera`)
         const pedidos = response.data.map((pedido) => {
             const { tempoDecorrido, maisDe10Minutos } = formatarHorario(pedido[6]); 
             return {
@@ -62,7 +62,7 @@ const buscarEMEspera = async()=>{
 }
 const buscarEmPreparo = async()=>{
     try{
-        const response = await axios.get(`${API_URL}/pedidosPreparo`)
+        const response = await axios.get(`https://pdv-production.up.railway.app/pedidosPreparo`)
         const pedidos = response.data.map((pedido) => {
             const { tempoDecorrido, maisDe10Minutos } = formatarHorario(pedido[6]); 
             console.log(response.data);
@@ -87,7 +87,7 @@ const Preparar = async(key)=>{
         Idpedido: JSON.parse(key),
         Newstatus: "Preparo"
     }
-    const url = `${API_URL}/atualizarPedido`
+    const url = `https://pdv-production.up.railway.app/atualizarPedido`
     try{
         const response = await axios.put(url, dados);
         setPedidosPreparo(response.data);
@@ -103,7 +103,7 @@ const Entregar = async(array)=>{
         Idpedido: JSON.parse(array),
         Newstatus: "Finalizado"
     }
-    const url = `${API_URL}/atualizarPedido`
+    const url = `https://pdv-production.up.railway.app/atualizarPedido`
     try{
         const response = await axios.put(url, dados);
        setAviso(true);

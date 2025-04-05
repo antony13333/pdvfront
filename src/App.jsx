@@ -16,7 +16,6 @@ import { XMarkIcon, ExclamationTriangleIcon } from '@heroicons/react/24/solid';
 
 const App = () => {
   document.body.style.overflow = 'hidden';
-  const API_URL = import.meta.env.VITE_API_URL;
   const [aberto, setAberto] = useState(false);
   const [comanda, setComanda] = useState(null);
   const [uptcomanda, setC] = useState([]);
@@ -40,7 +39,7 @@ const App = () => {
   }, [atualizar])
   const AberturaHoje = async () => {
     try {
-      const status = await axios.get(`${API_URL}/abre`)
+      const status = await axios.get(`https://pdv-production.up.railway.app/abre`)
       setAberto(status.data);
       console.log(status.data);
 
@@ -55,7 +54,7 @@ const App = () => {
       const body = {
         produtosIds: produto.id_produto
       }
-      const url = `${API_URL}/addprod/${id}`
+      const url = `https://pdv-production.up.railway.app/addprod/${id}`
       try {
         const resposta = await axios.put(url, body);
         console.log(resposta.data);
@@ -72,7 +71,7 @@ const App = () => {
     }
 
     try {
-      const Response = await axios.get(`${API_URL}/${id}`)
+      const Response = await axios.get(`https://pdv-production.up.railway.app/${id}`)
       console.log(Response.data);
       setProdutos(Response.data);
     } catch (error) {
@@ -81,7 +80,7 @@ const App = () => {
   }
   const newC = async () => {
     try {
-      const status = await axios.get(`${API_URL}/${comanda.id_Comanda}`)
+      const status = await axios.get(`https://pdv-production.up.railway.app/${comanda.id_Comanda}`)
       setC(status.data);
       console.log(status.data)
     }
@@ -96,7 +95,7 @@ const App = () => {
     }
     console.log(produto.id_produto)
     const id = produto.id_produto;
-    const url = `${API_URL}/comandas`;
+    const url = `https://pdv-production.up.railway.app/comandas`;
     const body = {
       produtosIds: [id],
       Identificador: "comanda00",

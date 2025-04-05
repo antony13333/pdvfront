@@ -60,7 +60,7 @@ const Operation = ({ toShow, fechar, aberto, abrir }) => {
       const body = {
         Dinheiro_abertura: abertura
       }
-      const url = `${API_URL}/aberturaCaixa`
+      const url = `https://pdv-production.up.railway.app/aberturaCaixa`
       try {
         const status = await axios.post(url, body);
         console.log(status.data);
@@ -110,7 +110,7 @@ const Operation = ({ toShow, fechar, aberto, abrir }) => {
       console.log(pix);
       console.log(credito);
       
-      const url = `${API_URL}/fechamento`
+      const url = `https://pdv-production.up.railway.appfechamento`
       const body = {
         Credito: credito,
         Debito: debito,
@@ -153,7 +153,7 @@ const Operation = ({ toShow, fechar, aberto, abrir }) => {
       const value = {
         valor: suprimento
       }
-      const url = `${API_URL}/suprimento`
+      const url = `https://pdv-production.up.railway.app/suprimento`
       try {
         const resp = await axios.post(url, value);
         console.log(resp.data);
@@ -185,7 +185,7 @@ const Operation = ({ toShow, fechar, aberto, abrir }) => {
       const value = {
         valor: sangria
       }
-      const url = `${API_URL}/sangria`
+      const url = `https://pdv-production.up.railway.app/sangria`
       try {
         const resp = await axios.post(url, value);
         console.log(resp.data);

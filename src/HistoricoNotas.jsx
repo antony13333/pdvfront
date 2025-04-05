@@ -26,7 +26,7 @@ const HistoricoNotas = () => {
 
     const prodfetch = async () => {
         try {
-            const status = await axios.get(`${API_URL}/produtosrestaurante`);
+            const status = await axios.get(`https://pdv-production.up.railway.app/produtosrestaurante`);
             setProdutos(status.data);
             setReprodutos(status.data);
         } catch (error) {
@@ -36,7 +36,7 @@ const HistoricoNotas = () => {
 
     const comanfetch = async () => {
         try {
-            const response = await axios.get(`${API_URL}/comandasnota`);
+            const response = await axios.get(`https://pdv-production.up.railway.app/comandasnota`);
             const comandas = response.data;
             const listaUnica = comandas.filter((item, index) => comandas.indexOf(item) === index);
             setComandas(listaUnica);
@@ -53,14 +53,14 @@ const HistoricoNotas = () => {
         if (dtaab) dados.Data_Criacao = dtaab;
         if (mp) dados.FormaPagamento = mp;
 
-        const url = `${API_URL}/filternotas`;
+        const url = `https://pdv-production.up.railway.app/filternotas`;
         try {
             let notas;
             if (Object.keys(dados).length > 0) {
                 const response = await axios.post(url, dados);
                 notas = response.data;
             } else {
-                const resposta = await axios.get(`${API_URL}/notasall`);
+                const resposta = await axios.get(`https://pdv-production.up.railway.app/notasall`);
                 notas = resposta.data;
             }
             

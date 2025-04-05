@@ -54,7 +54,7 @@ const Details =  ({comanda , produtos , setvisu , close, aberto})=>{
             Identificador: comanda?.identificador, 
             quantidade_prod: updated,
         };
-        const url = `${API_URL}/comandas/${comanda.id_Comanda}`;
+        const url = `https://pdv-production.up.railway.app/comandas/${comanda.id_Comanda}`;
         try{const res = await axios.put(url, dados);
             console.log("Comanda atualizada com sucesso:", res.data);
         } catch (error) {
@@ -75,7 +75,7 @@ const Details =  ({comanda , produtos , setvisu , close, aberto})=>{
             Identificador: comanda?.identificador, 
             quantidade_prod: updatedQuantidadeProd,
         };
-        const url = `${API_URL}/comandas/${comanda.id_Comanda}`;
+        const url = `https://pdv-production.up.railway.app/comandas/${comanda.id_Comanda}`;
         try{
         const res = await axios.put(url, dados);
         console.log("Comanda atualizada com sucesso:", res.data);
@@ -87,7 +87,7 @@ const Details =  ({comanda , produtos , setvisu , close, aberto})=>{
         
     }
     const idtchange = async(nome)=>{
-      const url= `${API_URL}/comandas/${comanda.id_Comanda}`
+      const url= `https://pdv-production.up.railway.app/comandas/${comanda.id_Comanda}`
         const dados= {
             produtosIds: prod.map(item => item.id_produto),
             Identificador: nome,
@@ -122,7 +122,7 @@ const Details =  ({comanda , produtos , setvisu , close, aberto})=>{
       setQtd(updatedQtd)
     }
 
-    const url = `${API_URL}/comandas/${comanda.id_Comanda}`;
+    const url = `https://pdv-production.up.railway.app/comandas/${comanda.id_Comanda}`;
     const dados = {
       produtosIds: updatedProd.map((item) => item.id_produto),
       Identificador: comanda?.identificador, 
@@ -137,7 +137,7 @@ const Details =  ({comanda , produtos , setvisu , close, aberto})=>{
 };
 
     const update = async()=>{
-        const url= `${API_URL}/comandas/${comanda.id_Comanda}`
+        const url= `https://pdv-production.up.railway.app/comandas/${comanda.id_Comanda}`
         const dados= {
             produtosIds: prod.map(item => item.id_produto),
             Identificador: qtd.identificador,
@@ -151,7 +151,7 @@ const Details =  ({comanda , produtos , setvisu , close, aberto})=>{
     catch(error){
         console.log(error);
     }
-    const url2= `${API_URL}/postpedido`
+    const url2= `https://pdv-production.up.railway.app/postpedido`
     const filterprods= prod.filter(item => item.vai_para_cozinha);
     const indexf= prod.map((item, index)=> item.vai_para_cozinha? index: -1)
     .filter(index => index!== -1);

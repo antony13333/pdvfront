@@ -13,7 +13,7 @@ const Fetch = ({selectedcomanda }) =>{
     const handleFetch = async()=>
     {
         try{
-            const resposta = await axios.get(`${API_URL}/ComandasAbertas`)
+            const resposta = await axios.get(`https://pdv-production.up.railway.app/ComandasAbertas`)
             .then((resposta)=>{
                 setDado(resposta.data)
                
