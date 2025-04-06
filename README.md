@@ -4,7 +4,7 @@ Este repositório é o front-end de um sistema de PDV (ponto de venda), constru�
 
 Na página inicial, as comandas abertas são exibidas no painel da esquerda, enquanto o painel da direita mostra os detalhes das comandas existentes ou em criação. Ao clicar em uma comanda, é possível editá-la de diferentes formas: alterar o nome, modificar as quantidades e gerenciar os produtos.
 
-Assim que uma comanda é aberta, uma faixa aparece na parte inferior da tela, apresentando o valor total da comanda e um botão para fechamento. Ao clicar nesse botão, o usuário é redirecionado para a aba de pagamentos, onde pode selecionar diferentes formas de pagamento (não limitado a apenas uma por comanda). Após o registro correto do pagamento, uma nota fiscal fictícia é exibida.
+Assim que uma comanda é aberta, uma faixa aparece na parte inferior da tela, apresentando o valor total da comanda e um botão para fechamento. Ao clicar nesse botão, o usuário pode escolher fechar ou não a comanda, se não fechada ela fica pendente no sistema, se confirmado o fechamento o usuário é redirecionado para a aba de pagamentos, onde pode selecionar diferentes formas de pagamento (não limitado a apenas uma por comanda). Após o registro correto do pagamento, uma nota fiscal fictícia é exibida.
 
 Ainda na tela inicial, há uma barra lateral direita (acessada através do ícone de engrenagem no canto superior direito) com duas seções principais:
 	•	Operações do PDV: abertura de caixa, suplemento, sangria, fechamento e histórico de notas. Essas funcionalidades são vitais para o funcionamento correto do sistema, incluindo os registros de faturamento diário.
