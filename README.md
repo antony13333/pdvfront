@@ -1,4 +1,4 @@
-README
+README   link:https://d2wk73bhxwtu9d.cloudfront.net/
 
 Este repositório é o front-end de um sistema de PDV (ponto de venda), construído com React + Vite. Utilizei algumas bibliotecas como Framer Motion e Tailwind CSS para facilitar a construção visual da aplicação.
 
